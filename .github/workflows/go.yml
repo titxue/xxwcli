@@ -53,7 +53,7 @@ jobs:
         id: os
         run: |
           echo "OS=${{ steps.replace.outputs.replaced }}" >> $GITHUB_OUTPUT
-          echo "OS: ${{ steps.replace.outputs.replaced }}"
+          echo "OS-${{ steps.replace.outputs.replaced }}"
 
       
 
