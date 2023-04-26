@@ -47,7 +47,7 @@ jobs:
         with:
           pattern: '/-latest$/'
           string: ${{ matrix.os }}
-          replace-with: 'TEST $1!'
+          replace-with: '$1'
 
       - name: Set OS variable
         id: os
