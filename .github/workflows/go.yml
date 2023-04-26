@@ -45,7 +45,7 @@ jobs:
         uses: frabert/replace-string-action@v2
         id: replace
         with:
-          pattern: '/(\w+)-/'
+          pattern: '/-latest$/'
           string: ${{ matrix.os }}
           replace-with: 'TEST $1!'
 
