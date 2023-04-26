@@ -92,4 +92,3 @@ jobs:
           name: ${{ steps.os_unix.outputs.os }}${{ steps.os_windows.outputs.os }}-${{ steps.date.outputs.year_month_day_hour_minute }}
           tag: v-${{ steps.os_unix.outputs.os }}${{ steps.os_windows.outputs.os }}-${{ steps.date.outputs.year_month_day_hour_minute }}.tag
           token: ${{ secrets.GITHUB_TOKEN }}
-          token: ${{ secrets.GITHUB_TOKEN }}
