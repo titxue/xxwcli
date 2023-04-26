@@ -51,7 +51,6 @@ jobs:
 
       - name: Set OS variable
         id: os
-        # https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
         run: |
           echo $1
           echo ${{ steps.replace.outputs.replaced  }}
