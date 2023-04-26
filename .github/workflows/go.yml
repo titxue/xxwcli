@@ -51,16 +51,8 @@ jobs:
 
       - name: Set OS variable
         id: os
-        run: |
-          echo $1
-          echo ${{ steps.replace.outputs.replaced  }}
-          if [[ ${{ runner.os }} == 'Windows' ]]; then 
-            echo 'windows'; 
-          elif [[ ${{ runner.os }} == 'Linux' ]]; 
-            then echo 'ubuntu'; 
-          else 
-            echo 'macos';
-          fi
+        run: echo '[[ "${{ steps.replace.outputs.replaced }}" == "1.0.1" ]]'
+      
 
       - name: Get current date
         id: date
