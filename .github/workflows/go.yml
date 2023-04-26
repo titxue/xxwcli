@@ -80,5 +80,5 @@ jobs:
             xxwcli.exe
           prerelease: true
           name: ${{ steps.os.outputs.os }}-${{ steps.date.outputs.year_month_day_hour_minute }}
-          tag: v-${{ steps.os.outputs.os }}-${{ steps.date.outputs.year_month_day_hour_minute }}
+          tag: v-${{ steps.os.outputs.os }}-${{ steps.date.outputs.year_month_day_hour_minute }}.tag
           token: ${{ secrets.GITHUB_TOKEN }}
