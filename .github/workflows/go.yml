@@ -49,8 +49,18 @@ jobs:
           string: ${{ matrix.os }}
           replace-with: ''
 
-      - name: Set OS variable
-        id: os
+      - name: Set OS variable (Linux/Mac)
+        if: matrix.os != 'windows-latest'
+        id: os_unix
+        shell: bash
+        run: |
+          echo "OS=${{ steps.replace.outputs.replaced }}" >> $GITHUB_OUTPUT
+          echo "OS: ${{ steps.replace.outputs.replaced }}"
+
+      - name: Set OS variable (Windows)
+        if: matrix.os == 'windows-latest'
+        id: os_windows
+        shell: powershell
         run: |
           echo "OS=${{ steps.replace.outputs.replaced }}" >> $GITHUB_OUTPUT
           echo "OS-${{ steps.replace.outputs.replaced }}"
@@ -79,6 +89,7 @@ jobs:
             xxwcli
             xxwcli.exe
           prerelease: true
-          name: ${{ steps.os.outputs.os }}-${{ steps.date.outputs.year_month_day_hour_minute }}
-          tag: v-${{ steps.os.outputs.os }}-${{ steps.date.outputs.year_month_day_hour_minute }}.tag
+          name: ${{ steps.os_unix.outputs.os }}${{ steps.os_windows.outputs.os }}-${{ steps.date.outputs.year_month_day_hour_minute }}
+          tag: v-${{ steps.os_unix.outputs.os }}${{ steps.os_windows.outputs.os }}-${{ steps.date.outputs.year_month_day_hour_minute }}.tag
+          token: ${{ secrets.GITHUB_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
