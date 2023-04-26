@@ -47,11 +47,11 @@ jobs:
         with:
           pattern: '/(\w+)-/'
           string: ${{ matrix.os }}
-          replace-with: 'I greet you, $1!'
+          replace-with: 'TEST $1!'
 
       - name: Set OS variable
         id: os
-        run: echo '[[ "${{ steps.replace.outputs.replaced }}" == "1.0.1" ]]'
+        run: echo "${{ steps.replace.outputs.replaced }}"
       
 
       - name: Get current date
