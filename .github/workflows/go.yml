@@ -53,11 +53,8 @@ jobs:
         id: os
         # https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
         run: |
-          aa="ubuntu-latest"
-          echo $aa
-          echo $aa.replace("-latest", '')
           echo $1
-          echo ${{ steps.replace.replace-with }}
+          echo ${{ steps.replace.outputs.replaced  }}
           if [[ ${{ runner.os }} == 'Windows' ]]; then 
             echo 'windows'; 
           elif [[ ${{ runner.os }} == 'Linux' ]]; 
